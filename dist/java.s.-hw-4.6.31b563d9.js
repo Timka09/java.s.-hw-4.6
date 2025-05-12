@@ -667,6 +667,55 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
+var _gameJs = require("./game.js");
+const userChoice = prompt("\u0412\u0438\u0431\u0435\u0440\u0438: \u043A\u0430\u043C\u0456\u043D\u044C, \u043D\u043E\u0436\u0438\u0446\u0456 \u0430\u0431\u043E \u043F\u0430\u043F\u0456\u0440").toLowerCase();
+alert((0, _gameJs.playRound)(userChoice));
+
+},{"./game.js":"9VLDe"}],"9VLDe":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "playRound", ()=>playRound);
+function playRound(userChoice) {
+    const choices = [
+        "\u043A\u0430\u043C\u0456\u043D\u044C",
+        "\u043D\u043E\u0436\u0438\u0446\u0456",
+        "\u043F\u0430\u043F\u0456\u0440"
+    ];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    if (userChoice === computerChoice) return `\u{41D}\u{456}\u{447}\u{44C}\u{44F}! \u{43F}\u{435}\u{440}\u{435}\u{43C}\u{43E}\u{433}\u{43B}\u{430} \u{434}\u{440}\u{443}\u{436}\u{431}\u{430} ${userChoice}`;
+    const win = userChoice === "\u043A\u0430\u043C\u0456\u043D\u044C" && computerChoice === "\u043D\u043E\u0436\u0438\u0446\u0456" || userChoice === "\u043D\u043E\u0436\u0438\u0446\u0456" && computerChoice === "\u043F\u0430\u043F\u0456\u0440" || userChoice === "\u043F\u0430\u043F\u0456\u0440" && computerChoice === "\u043A\u0430\u043C\u0456\u043D\u044C";
+    return win ? `\u{422}\u{438} \u{43F}\u{435}\u{440}\u{435}\u{43C}\u{456}\u{433}! ${userChoice} \u{431}'\u{454} ${computerChoice}` : `\u{422}\u{438} \u{43F}\u{440}\u{43E}\u{433}\u{440}\u{430}\u{432}! ${computerChoice} \u{431}'\u{454} ${userChoice}`;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire5037", {})
 
